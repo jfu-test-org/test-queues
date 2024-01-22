@@ -13,7 +13,7 @@ jobs:
               echo "$i seconds elapsed"
               sleep 1
             done
-      - run: exit 1
+      - run: echo "Success!"
 
 workflows:
   say-hello-workflow:
