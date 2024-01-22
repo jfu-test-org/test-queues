@@ -1,4 +1,4 @@
-name: Fail 10% of the time
+name: Fail 20% of the time
 on: [pull_request]
 jobs:
   build:
@@ -6,9 +6,9 @@ jobs:
     steps:
     - name: Run for 20 seconds
       run: sleep 20
-    - name: Fail 10% of the time
+    - name: Fail 20% of the time
       run: |
-        if [ $((RANDOM % 10)) -eq 0 ]
+        if [ $((RANDOM % 20)) -eq 0 ]
         then
           exit 1
         fi
