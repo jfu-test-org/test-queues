@@ -1,0 +1,21 @@
+version: 2.1
+
+jobs:
+  say-hello:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: echo "Hello, world!"
+      - run:
+          name: Wait for one minute
+          command: |
+            for i in {1..60}; do
+              echo "$i seconds elapsed"
+              sleep 1
+            done
+      - run: echo "Success!"
+
+workflows:
+  say-hello-workflow:
+    jobs:
+      - say-hello
