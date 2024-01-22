@@ -1,0 +1,14 @@
+name: Fail 10% of the time
+on: [pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run for 20 seconds
+      run: sleep 20
+    - name: Fail 10% of the time
+      run: |
+        if [ $((RANDOM % 10)) -eq 0 ]
+        then
+          exit 1
+        fi
