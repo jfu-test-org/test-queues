@@ -1,0 +1,23 @@
+name: Check Circle Status
+on:
+  pull_request:
+    types: [queue]
+jobs:
+  merge-queue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check previous Circle run status
+        id: get_status
+        run: |
+          PREV_MERGE_STATUS=$(curl https://circleci.com/api/v1.1/project.github/jasonfu9966/test-queues/tree/main?limit=10)
+          echo "::set-output name=status::$PREV_MERGE_STATUS"
+      - name: Proceed and merge current PR
+        if: ${{ steps.get_status.outputs.status == 'success' || steps.get_status.outputs.status  == 'skipped' }}
+        run: exit 0
+      - name: Keep waiting and re-check status every x minutes
+        if: ${{ steps.get_status.outputs.status != 'success' && steps.get_status.outputs.status  != 'skipped' }}
+        # do a thing
+        run: exit 1
+    #   - name: Timeout
+    #     if: exceeded 60 minutes, etc
+    #     run: exit 1
