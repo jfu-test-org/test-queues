@@ -1,12 +1,12 @@
-name: Fail 20% of the time
+name: Wait 10 minutes and fail 20% of the time
 on: [pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Run for 20 seconds
+    - name: Run for 10 minutes
       run: |
-        for i in {1..60}; do
+        for i in {1..600}; do
           echo "$i seconds elapsed"
           sleep 1
         done
