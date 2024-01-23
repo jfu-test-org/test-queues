@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  try:
+  hello-and-pass-or-fail:
     docker:
       - image: cimg/base:stable
     steps:
@@ -22,7 +22,7 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs: 
-      - try:
+      - hello-and-pass-or-fail:
         filters:
           branches:
             only: 
