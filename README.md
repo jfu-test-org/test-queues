@@ -10,3 +10,6 @@ Noats:
 - can add a new check: is previous build in CircleCI complete? before merging
 - branch either has "require merge queue" setting on or off
   - can't manually merge
+  - 
+- another one
+- 
