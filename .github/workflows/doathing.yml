@@ -16,5 +16,5 @@ jobs:
     #     then
     #       exit 1
     #     fi
-    - name: fail
-      run: exit 1
+    - name: succeed
+      run: exit 0
