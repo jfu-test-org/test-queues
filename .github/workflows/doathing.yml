@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Set env vars
       run: | 
-        export CIRCLE_TOKEN={b044f96d90b2f2b5fadad71852d98603673a7357}
+        export CIRCLE_TOKEN={**secret**}
         export API_URL={https://circleci.com/api/v2/project/gh/jfu-test-org/test-queues/workflows?branch=main}
       - name: Check previous Circle run status
         id: get_status
