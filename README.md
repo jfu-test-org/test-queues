@@ -13,6 +13,6 @@ Noats:
   - 
 - another one
 - branch that passes after five minutes
-- branch that fails after three minutes
 - branch with a merge conflict
-another branch that passes
+- another branch that passes
+- 
