@@ -6,10 +6,14 @@ jobs:
   merge-queue:
     runs-on: ubuntu-latest
     steps:
+      - name: Set env vars
+        run: | 
+          export CIRCLE_TOKEN={b044f96d90b2f2b5fadad71852d98603673a7357}
+          export API_URL={https://circleci.com/api/v2/insights/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/workflows?branch=main}
       - name: Check previous Circle run status
         id: get_status
         run: |
-          PREV_MERGE_STATUS=$(curl https://circleci.com/api/v1.1/project.github/jasonfu9966/test-queues/tree/main?limit=10)
+          PREV_MERGE_STATUS=$(curl --request GET -- url ${API_URL} --header "Circle-Token: $CIRCLE_TOKEN")
           echo "::set-output name=status::$PREV_MERGE_STATUS"
       - name: Proceed and merge current PR
         if: ${{ steps.get_status.outputs.status == 'success' || steps.get_status.outputs.status  == 'skipped' }}

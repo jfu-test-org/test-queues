@@ -11,3 +11,9 @@ kaizer from California
 {Cuts to a scene of a piece of paper on a table. You can only see Strong Bad's right boxing glove, and he is holding a pencil.}
 
 another line from homestarrunner here
+
+curl --request GET --url https://circleci.com/api/v2/project/gh/jfu-test-org/test-queues/workflows?branch=main --header "Circle-Token: ${CIRCLE_TOKEN}"
+
+CCIPAT_2nqKSKDgxt2P6FGi6kGJjE_d9a66d65debd7f68eb50ca961c79ce009a5fc675
+
+curl --url https://circleci.com/api/v2/insights/jfu-test-org/test-queues/workflows?branch=main --u b044f96d90b2f2b5fadad71852d98603673a7357
