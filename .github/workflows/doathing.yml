@@ -6,15 +6,9 @@ jobs:
     steps:
     - name: Run for 10 minutes
       run: |
-        for i in {1..600}; do
+        for i in {1..180}; do
           echo "$i seconds elapsed"
           sleep 1
         done
-    # - name: Fail 20% of the time
-    #   run: |
-    #     if [ $((RANDOM % 20)) -eq 0 ]
-    #     then
-    #       exit 1
-    #     fi
     - name: fail
       run: exit 1
