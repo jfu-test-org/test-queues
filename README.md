@@ -12,4 +12,7 @@ Noats:
   - can't manually merge
   - 
 - another one
+- branch that passes after five minutes
+- branch with a merge conflict
+- another branch that passes
 - 
